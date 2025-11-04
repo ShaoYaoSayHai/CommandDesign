@@ -16,4 +16,9 @@ void serial_device_1_init(void);
  */
 void serial_device_init(const char *name);
 
+/**
+ * @brief 获取到串口指针
+ */
+struct serial_device *tch_get_serial(const char *name);
+
 #endif

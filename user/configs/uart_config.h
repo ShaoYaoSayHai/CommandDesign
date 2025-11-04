@@ -47,14 +47,19 @@ struct serial_configure
     uint32_t baud_rate; // 波特率
 };
 
-struct serial_rx_fifo
+struct serial_rx_configure
 {
     /* software fifo */
     uint8_t *buffer;
 
-    uint16_t get_index;
+    uint16_t size;
 
-    uint8_t is_total;
+    uint8_t is_finished;
+
+    uint16_t max_size; // 新增：缓冲区最大容量
+
+    uint16_t timeout_count; // 新增：超时计数器
+    uint8_t receiving;      // 新增：接收中标志
 };
 
 struct serial_device
@@ -65,7 +70,7 @@ struct serial_device
 
     struct uart_ops *ops;
 
-    // struct serial_rx_fifo rx_fifo;
+    // struct serial_rx_configure rx_fifo;
 };
 
 /**
@@ -75,14 +80,13 @@ struct uart_ops
 {
     int (*configure)(struct serial_device *serial, struct serial_configure *cfg);
     int (*putc)(struct serial_device *serial, char c);
-    int (*getc)(struct serial_device *serial, uint8_t *puc_buffer, uint16_t *size);
+    int (*getc)(struct serial_device *serial, uint8_t *puc_buffer, uint16_t size);
     int (*putc_sz)(struct serial_device *serial, char *buffer, uint16_t size); // 发送数组
 };
 
 typedef struct uart_timeout_config
 {
-    
-}uart_timeout_config;
 
+} uart_timeout_config;
 
 #endif

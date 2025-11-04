@@ -5,27 +5,57 @@
 // 用来接收数据的数组
 uint8_t usart_1_rx_fifo_buffer[MB_UART_RX_MAX_SIZE];
 
-struct serial_rx_fifo serial_1_rx_handler;
+struct serial_rx_configure serial_1_rx_handler;
 
 void USART1_IRQHandler(void)
 {
+    // // RX 单次接收完成中断标志位
+    // if (usart_interrupt_flag_get(USART1, USART_RDBF_FLAG) != RESET)
+    // {
+    //     if (serial_1_rx_handler.size > MB_UART_RX_MAX_SIZE)
+    //     {
+    //         serial_1_rx_handler.size = 0;
+    //     }
+    //     serial_1_rx_handler.buffer[serial_1_rx_handler.size++] = usart_data_receive((USART1));
+    //     // 清除标志位
+    //     usart_flag_clear((USART1), USART_RDBF_FLAG);
+    // }
+    // // 空闲中断
+    // if (usart_interrupt_flag_get(USART1, USART_IDLEF_FLAG) != RESET)
+    // {
+    //     serial_1_rx_handler.is_finished = TRUE; // 设置FIFO标志位
+    //     // 清除标志位
+    //     usart_flag_clear((USART1), USART_IDLEF_FLAG);
+    // }
     // RX 单次接收完成中断标志位
     if (usart_interrupt_flag_get(USART1, USART_RDBF_FLAG) != RESET)
     {
-        if (serial_1_rx_handler.get_index > MB_UART_RX_MAX_SIZE)
+        // 如果是第一次接收数据，启动接收过程
+        if (!serial_1_rx_handler.receiving)
         {
-            serial_1_rx_handler.get_index = 0;
+            serial_1_rx_handler.receiving = TRUE;
+            serial_1_rx_handler.timeout_count = 0; // 重置超时计数器
         }
-        serial_1_rx_handler.buffer[serial_1_rx_handler.get_index++] = usart_data_receive((USART1));
-        // 清除标志位
-        usart_flag_clear((USART1), USART_RDBF_FLAG);
-    }
-    // 空闲中断
-    if (usart_interrupt_flag_get(USART1, USART_IDLEF_FLAG) != RESET)
-    {
-        serial_1_rx_handler.is_total = TRUE; // 设置FIFO标志位
-        // 清除标志位
-        usart_flag_clear((USART1), USART_IDLEF_FLAG);
+        else
+        {
+            // 每次收到新数据都重置超时计数器
+            serial_1_rx_handler.timeout_count = 0;
+        }
+        // 检查缓冲区边界
+        if (serial_1_rx_handler.size < serial_1_rx_handler.max_size)
+        {
+            // 存储接收到的数据
+            uint8_t received_data = usart_data_receive(USART1);
+            serial_1_rx_handler.buffer[serial_1_rx_handler.size++] = received_data;
+        }
+        else
+        {
+            // 缓冲区已满，可以在这里处理缓冲区溢出
+            // 例如：丢弃数据或触发错误处理
+        }
+
+        // 清除接收标志位
+        usart_flag_clear(USART1, USART_RDBF_FLAG);
     }
 }
 
@@ -38,6 +68,22 @@ void TMR6_GLOBAL_IRQHandler(void)
 {
     if (tmr_interrupt_flag_get(TMR6, TMR_OVF_FLAG) != RESET)
     {
+        // 检查是否正在接收数据
+        if (serial_1_rx_handler.receiving)
+        {
+            serial_1_rx_handler.timeout_count++;
+
+            // 如果8ms内没有新数据（假设定时器中断为1ms）
+            if (serial_1_rx_handler.timeout_count >= 8)
+            {
+                // 设置接收完成标志
+                serial_1_rx_handler.is_finished = TRUE;
+                serial_1_rx_handler.receiving = FALSE;
+                serial_1_rx_handler.timeout_count = 0;
+
+                // 可选：在这里可以触发回调函数通知主程序
+            }
+        }
         tmr_flag_clear(TMR6, TMR_OVF_FLAG);
     }
 }
@@ -48,24 +94,29 @@ void TMR6_GLOBAL_IRQHandler(void)
 void drv_serial_1_rx_handler_init(void)
 {
     serial_1_rx_handler.buffer = &usart_1_rx_fifo_buffer[0];
-    serial_1_rx_handler.get_index = 0;
-    serial_1_rx_handler.is_total = FALSE;
+    serial_1_rx_handler.size = 0;
+    serial_1_rx_handler.is_finished = FALSE;
+    serial_1_rx_handler.max_size = MB_UART_RX_MAX_SIZE;
+    serial_1_rx_handler.timeout_count = 0;
+    serial_1_rx_handler.receiving = FALSE;
 }
 
-void drv_serial_rx_clear(struct serial_rx_fifo *serial_rx)
+void drv_serial_rx_clear(struct serial_rx_configure *serial_rx)
 {
-    for (size_t i = 0; i < serial_rx->get_index; i++)
+    for (size_t i = 0; i < serial_rx->size; i++)
     {
         serial_rx->buffer[i] = 0;
     }
-    serial_rx->get_index = 0;
-    serial_rx->is_total = FALSE;
+    serial_1_rx_handler.size = 0;
+    serial_1_rx_handler.is_finished = FALSE;
+    serial_1_rx_handler.timeout_count = 0;
+    serial_1_rx_handler.receiving = FALSE;
 }
 
 /**
  * @brief 获取句柄指针
  */
-struct serial_rx_fifo *drv_get_serial_fifo_1(void)
+struct serial_rx_configure *drv_get_serial_fifo_1(void)
 {
     return &serial_1_rx_handler;
 }
@@ -145,7 +196,7 @@ int drv_uart_config(struct serial_device *px_serialDevice, struct serial_configu
     nvic_irq_enable(
         (px_serialDevice->uart.irqn), (cfg->irq_priority), 0);                  // 配置中断优先级并使能
     usart_interrupt_enable((px_serialDevice->uart.uart), USART_RDBF_INT, TRUE); // 配置串口接收中断
-    usart_interrupt_enable((px_serialDevice->uart.uart), USART_IDLE_INT, TRUE); // 都默认配置成空闲中断
+    // usart_interrupt_enable((px_serialDevice->uart.uart), USART_IDLE_INT, TRUE); // 都默认配置成空闲中断
     usart_enable((px_serialDevice->uart.uart), TRUE);
 
     return SET;
@@ -185,9 +236,9 @@ int drv_putc_size(struct serial_device *serial, char *buffer, uint16_t size)
  * @return int RESET 并未读取到数据
  *             SET   已经成功读取到数据
  */
-int drv_getc(struct serial_device *serial, uint8_t *puc_buffer, uint16_t *size)
+int drv_getc(struct serial_device *serial, uint8_t *data_buf, uint16_t buf_size)
 {
-    if (puc_buffer == NULL || size == NULL)
+    if (data_buf == NULL || buf_size == 0)
     {
         return RESET;
     }
@@ -195,20 +246,17 @@ int drv_getc(struct serial_device *serial, uint8_t *puc_buffer, uint16_t *size)
     int ret = RESET;
     if (strcmp((serial->uart.name), "usart1") == 0) // 使用strcmp比较内容
     {
-        struct serial_rx_fifo *px_serial_rx = drv_get_serial_fifo_1();
-        if (px_serial_rx->is_total != FALSE)
+        if (serial_1_rx_handler.is_finished)
         {
-            for (size_t i = 0; i < px_serial_rx->get_index; i++)
+            uint16_t copy_size = (serial_1_rx_handler.size < buf_size) ? serial_1_rx_handler.size : buf_size;
+
+            // 复制数据到用户缓冲区
+            for (uint16_t i = 0; i < copy_size; i++)
             {
-                puc_buffer[i] = px_serial_rx->buffer[i];
+                data_buf[i] = serial_1_rx_handler.buffer[i];
             }
-            *size = px_serial_rx->get_index;
-            ret = SET;
+            ret = copy_size;
         }
-        else
-        {
-        }
-        drv_serial_rx_clear(px_serial_rx);
     }
     else if (strcmp((serial->uart.name), "usart2") == 0)
     {

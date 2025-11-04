@@ -612,6 +612,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\applications\tch_uart.c</FilePath>
             </File>
+            <File>
+              <FileName>mb_rtu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\applications\mb_rtu.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

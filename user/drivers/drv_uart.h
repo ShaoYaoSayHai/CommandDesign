@@ -9,12 +9,12 @@
  */
 void drv_serial_1_rx_handler_init(void);
 
-void drv_serial_rx_clear(struct serial_rx_fifo *serial_rx);
+void drv_serial_rx_clear(struct serial_rx_configure *serial_rx);
 
 /**
  * @brief 获取句柄指针
  */
-struct serial_rx_fifo *drv_get_serial_fifo_1(void);
+struct serial_rx_configure *drv_get_serial_fifo_1(void);
 
 /**
  * 函    数：串口发送一个数组
@@ -46,7 +46,7 @@ int drv_putc(struct serial_device *serial, char value);
  * @param serial
  * @return int
  */
-int drv_getc(struct serial_device *serial, uint8_t *puc_buffer, uint16_t *size);
+int drv_getc(struct serial_device *serial, uint8_t *puc_buffer, uint16_t size);
 
 /**
  * @brief 按照长度通过串口发送数据

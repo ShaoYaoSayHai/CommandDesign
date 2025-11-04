@@ -15,7 +15,7 @@ struct serial_device serial_device_1 = {
 
 /**
  * @brief 初始化外设信息
- *
+ *        需要在main初始化
  */
 void serial_device_1_init(void)
 {
@@ -58,4 +58,19 @@ void serial_device_init(const char *name)
     {
         /* 处理usart2的初始化代码 */
     }
+}
+
+/**
+ * @brief 获取到串口指针
+ */
+struct serial_device *tch_get_serial(const char *name)
+{
+    if (strcmp(name, "usart1") == 0) // 使用strcmp比较内容
+    {
+        return &serial_device_1;
+    }
+    else if (strcmp(name, "usart2") == 0)
+    {
+    }
+    return NULL;
 }
