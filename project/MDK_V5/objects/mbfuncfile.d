@@ -1,0 +1,12 @@
+.\objects\mbfuncfile.o: ..\..\user\freemodbus\modbus\functions\mbfuncfile.c
+.\objects\mbfuncfile.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mbfuncfile.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\mbfuncfile.o: ..\..\user\freemodbus\port\port\port.h
+.\objects\mbfuncfile.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\mbfuncfile.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\mbfuncfile.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mbfuncfile.o: ..\..\user\freemodbus\modbus\include\mb.h
+.\objects\mbfuncfile.o: ..\..\user\freemodbus\modbus\include\mbport.h
+.\objects\mbfuncfile.o: ..\..\user\freemodbus\modbus\include\mbproto.h
+.\objects\mbfuncfile.o: ..\..\user\freemodbus\modbus\include\mbframe.h
+.\objects\mbfuncfile.o: ..\..\user\freemodbus\modbus\include\mbconfig.h

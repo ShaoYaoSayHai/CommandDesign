@@ -45,4 +45,11 @@
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\ctype.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  ..\..\user\applications\mb_rtu.h
+  ..\..\user\applications\mb_task.h \
+  ..\..\user\freemodbus\modbus\include\mb.h \
+  ..\..\user\freemodbus\modbus_port\port.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\assert.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\inttypes.h \
+  ..\..\user\freemodbus\modbus\include\mbport.h \
+  ..\..\user\freemodbus\modbus\include\mbproto.h \
+  ..\..\user\freemodbus\modbus\include\mbport.h

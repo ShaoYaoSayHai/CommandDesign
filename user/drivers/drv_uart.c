@@ -7,57 +7,57 @@ uint8_t usart_1_rx_fifo_buffer[MB_UART_RX_MAX_SIZE];
 
 struct serial_rx_configure serial_1_rx_handler;
 
-void USART1_IRQHandler(void)
-{
-    // // RX 单次接收完成中断标志位
-    // if (usart_interrupt_flag_get(USART1, USART_RDBF_FLAG) != RESET)
-    // {
-    //     if (serial_1_rx_handler.size > MB_UART_RX_MAX_SIZE)
-    //     {
-    //         serial_1_rx_handler.size = 0;
-    //     }
-    //     serial_1_rx_handler.buffer[serial_1_rx_handler.size++] = usart_data_receive((USART1));
-    //     // 清除标志位
-    //     usart_flag_clear((USART1), USART_RDBF_FLAG);
-    // }
-    // // 空闲中断
-    // if (usart_interrupt_flag_get(USART1, USART_IDLEF_FLAG) != RESET)
-    // {
-    //     serial_1_rx_handler.is_finished = TRUE; // 设置FIFO标志位
-    //     // 清除标志位
-    //     usart_flag_clear((USART1), USART_IDLEF_FLAG);
-    // }
-    // RX 单次接收完成中断标志位
-    if (usart_interrupt_flag_get(USART1, USART_RDBF_FLAG) != RESET)
-    {
-        // 如果是第一次接收数据，启动接收过程
-        if (!serial_1_rx_handler.receiving)
-        {
-            serial_1_rx_handler.receiving = TRUE;
-            serial_1_rx_handler.timeout_count = 0; // 重置超时计数器
-        }
-        else
-        {
-            // 每次收到新数据都重置超时计数器
-            serial_1_rx_handler.timeout_count = 0;
-        }
-        // 检查缓冲区边界
-        if (serial_1_rx_handler.size < serial_1_rx_handler.max_size)
-        {
-            // 存储接收到的数据
-            uint8_t received_data = usart_data_receive(USART1);
-            serial_1_rx_handler.buffer[serial_1_rx_handler.size++] = received_data;
-        }
-        else
-        {
-            // 缓冲区已满，可以在这里处理缓冲区溢出
-            // 例如：丢弃数据或触发错误处理
-        }
+//void USART1_IRQHandler(void)
+//{
+//    // // RX 单次接收完成中断标志位
+//    // if (usart_interrupt_flag_get(USART1, USART_RDBF_FLAG) != RESET)
+//    // {
+//    //     if (serial_1_rx_handler.size > MB_UART_RX_MAX_SIZE)
+//    //     {
+//    //         serial_1_rx_handler.size = 0;
+//    //     }
+//    //     serial_1_rx_handler.buffer[serial_1_rx_handler.size++] = usart_data_receive((USART1));
+//    //     // 清除标志位
+//    //     usart_flag_clear((USART1), USART_RDBF_FLAG);
+//    // }
+//    // // 空闲中断
+//    // if (usart_interrupt_flag_get(USART1, USART_IDLEF_FLAG) != RESET)
+//    // {
+//    //     serial_1_rx_handler.is_finished = TRUE; // 设置FIFO标志位
+//    //     // 清除标志位
+//    //     usart_flag_clear((USART1), USART_IDLEF_FLAG);
+//    // }
+//    // RX 单次接收完成中断标志位
+//    if (usart_interrupt_flag_get(USART1, USART_RDBF_FLAG) != RESET)
+//    {
+//        // 如果是第一次接收数据，启动接收过程
+//        if (!serial_1_rx_handler.receiving)
+//        {
+//            serial_1_rx_handler.receiving = TRUE;
+//            serial_1_rx_handler.timeout_count = 0; // 重置超时计数器
+//        }
+//        else
+//        {
+//            // 每次收到新数据都重置超时计数器
+//            serial_1_rx_handler.timeout_count = 0;
+//        }
+//        // 检查缓冲区边界
+//        if (serial_1_rx_handler.size < serial_1_rx_handler.max_size)
+//        {
+//            // 存储接收到的数据
+//            uint8_t received_data = usart_data_receive(USART1);
+//            serial_1_rx_handler.buffer[serial_1_rx_handler.size++] = received_data;
+//        }
+//        else
+//        {
+//            // 缓冲区已满，可以在这里处理缓冲区溢出
+//            // 例如：丢弃数据或触发错误处理
+//        }
 
-        // 清除接收标志位
-        usart_flag_clear(USART1, USART_RDBF_FLAG);
-    }
-}
+//        // 清除接收标志位
+//        usart_flag_clear(USART1, USART_RDBF_FLAG);
+//    }
+//}
 
 /**
  * @brief  this function handles TMR6 handler.

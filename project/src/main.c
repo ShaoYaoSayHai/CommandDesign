@@ -35,7 +35,8 @@
 /* private includes ----------------------------------------------------------*/
 /* add user code begin private includes */
 #include "tch_uart.h"
-#include "mb_rtu.h"
+#include "mb_task.h"
+
 /* add user code end private includes */
 
 /* private typedef -----------------------------------------------------------*/
@@ -104,13 +105,13 @@ int main(void)
   wk_tmr6_init();
 
   /* add user code begin 2 */
-  mb_init();
+  modbus_build_init();
   /* add user code end 2 */
 
   while (1)
   {
     /* add user code begin 3 */
-    mb_polling();
+    eMBPoll();
     /* add user code end 3 */
   }
 }
