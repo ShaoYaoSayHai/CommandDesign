@@ -1,6 +1,6 @@
 Dependencies for Project 'AT32F403ACGU7_PTP', Target 'AT32F403ACGU7_PTP': (DO NOT MODIFY !)
 CompilerVersion: 6160000::V6.16::ARMCLANG
-F (..\src\main.c)(0x690B7E82)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/main.o -MD)
+F (..\src\main.c)(0x690B9C65)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/main.o -MD)
 I (..\inc\at32f403a_407_wk_config.h)(0x690B2BF1)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (..\..\libraries\cmsis\cm4\device_support\at32f403a_407.h)(0x690B2BF1)
@@ -44,7 +44,7 @@ I (..\inc\wk_tmr.h)(0x690B2BF1)
 I (..\inc\wk_usart.h)(0x690B2BF1)
 I (..\inc\wk_gpio.h)(0x690B2BF1)
 I (..\inc\wk_system.h)(0x690B2BF1)
-I (..\..\user\applications\tch_uart.h)(0x690B7BE2)
+I (..\..\user\applications\tch_uart.h)(0x690B9C65)
 I (..\..\user\drivers\drv_uart.h)(0x690B2BF1)
 I (..\..\user\configs\uart_config.h)(0x690B2BF1)
 I (..\..\user\configs\base_config.h)(0x690B2BF1)
@@ -54,8 +54,8 @@ I (D:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x603507D4)
 I (D:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x603507CA)
 I (D:\Keil_v5\ARM\ARMCLANG\include\ctype.h)(0x603507B6)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
-I (..\..\user\applications\tch_mb.h)(0x690B94B2)
-I (..\..\user\drivers\drv_led.h)(0x690B2BF1)
+I (..\..\user\applications\tch_mb.h)(0x690B9B63)
+I (..\..\user\drivers\drv_led.h)(0x690B9B63)
 F (..\src\at32f403a_407_wk_config.c)(0x690B2BF1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/at32f403a_407_wk_config.o -MD)
 I (..\inc\at32f403a_407_wk_config.h)(0x690B2BF1)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
@@ -211,7 +211,7 @@ I (..\..\libraries\drivers\inc\at32f403a_407_usb.h)(0x690B2BF1)
 I (..\..\libraries\drivers\inc\at32f403a_407_wdt.h)(0x690B2BF1)
 I (..\..\libraries\drivers\inc\at32f403a_407_wwdt.h)(0x690B2BF1)
 I (..\..\libraries\drivers\inc\at32f403a_407_xmc.h)(0x690B2BF1)
-F (..\src\wk_usart.c)(0x690B2BF1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/wk_usart.o -MD)
+F (..\src\wk_usart.c)(0x690B9C65)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/wk_usart.o -MD)
 I (..\inc\wk_usart.h)(0x690B2BF1)
 I (..\inc\at32f403a_407_wk_config.h)(0x690B2BF1)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
@@ -1385,8 +1385,8 @@ I (..\..\libraries\drivers\inc\at32f403a_407_xmc.h)(0x690B2BF1)
 I (..\inc\wk_usart.h)(0x690B2BF1)
 I (..\inc\at32f403a_407_wk_config.h)(0x690B2BF1)
 I (..\inc\wk_gpio.h)(0x690B2BF1)
-F (..\..\user\drivers\drv_led.c)(0x690B2BF1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/drv_led.o -MD)
-I (..\..\user\drivers\drv_led.h)(0x690B2BF1)
+F (..\..\user\drivers\drv_led.c)(0x690B9B63)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/drv_led.o -MD)
+I (..\..\user\drivers\drv_led.h)(0x690B9B63)
 I (..\..\user\configs\base_config.h)(0x690B2BF1)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
@@ -1435,8 +1435,8 @@ I (..\..\libraries\drivers\inc\at32f403a_407_xmc.h)(0x690B2BF1)
 I (..\inc\wk_usart.h)(0x690B2BF1)
 I (..\inc\at32f403a_407_wk_config.h)(0x690B2BF1)
 I (..\inc\wk_gpio.h)(0x690B2BF1)
-F (..\..\user\applications\tch_uart.c)(0x690B7BDA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/tch_uart.o -MD)
-I (..\..\user\applications\tch_uart.h)(0x690B7BE2)
+F (..\..\user\applications\tch_uart.c)(0x690B9C65)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/tch_uart.o -MD)
+I (..\..\user\applications\tch_uart.h)(0x690B9C65)
 I (..\..\user\drivers\drv_uart.h)(0x690B2BF1)
 I (..\..\user\configs\uart_config.h)(0x690B2BF1)
 I (..\..\user\configs\base_config.h)(0x690B2BF1)
@@ -1487,8 +1487,8 @@ I (..\..\libraries\drivers\inc\at32f403a_407_xmc.h)(0x690B2BF1)
 I (..\inc\wk_usart.h)(0x690B2BF1)
 I (..\inc\at32f403a_407_wk_config.h)(0x690B2BF1)
 I (..\inc\wk_gpio.h)(0x690B2BF1)
-F (..\..\user\applications\tch_mb.c)(0x690B94D2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/tch_mb.o -MD)
-I (..\..\user\applications\tch_mb.h)(0x690B94B2)
+F (..\..\user\applications\tch_mb.c)(0x690B9B63)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/tch_mb.o -MD)
+I (..\..\user\applications\tch_mb.h)(0x690B9B63)
 I (..\..\user\configs\uart_config.h)(0x690B2BF1)
 I (..\..\user\configs\base_config.h)(0x690B2BF1)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
@@ -1538,11 +1538,11 @@ I (..\..\libraries\drivers\inc\at32f403a_407_xmc.h)(0x690B2BF1)
 I (..\inc\wk_usart.h)(0x690B2BF1)
 I (..\inc\at32f403a_407_wk_config.h)(0x690B2BF1)
 I (..\inc\wk_gpio.h)(0x690B2BF1)
-I (..\..\user\bases\crc.h)(0x690B8DD5)
-I (..\..\user\applications\tch_uart.h)(0x690B7BE2)
+I (..\..\user\bases\crc.h)(0x690B9C65)
+I (..\..\user\applications\tch_uart.h)(0x690B9C65)
 I (..\..\user\drivers\drv_uart.h)(0x690B2BF1)
 F (..\..\user\bases\crc.c)(0x690B2BF1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../libraries/drivers/inc -I ../../libraries/cmsis/cm4/core_support -I ../../libraries/cmsis/cm4/device_support -I ../inc -I ../../user/configs -I ../../user/drivers -I ../../user/applications -I ../../user/bases-ID:/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.1/Device/Include-D__UVISION_VERSION="536" -DAT32F403ACGU7 -DAT32F403ACGU7 -DUSE_STDPERIPH_DRIVER -DAT_START_F403A_V1-o ./objects/crc.o -MD)
-I (..\..\user\bases\crc.h)(0x690B8DD5)
+I (..\..\user\bases\crc.h)(0x690B9C65)
 I (..\..\user\configs\base_config.h)(0x690B2BF1)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
