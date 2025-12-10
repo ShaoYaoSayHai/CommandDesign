@@ -40,6 +40,7 @@
 ".\objects\tch_uart.o"
 ".\objects\tch_mb.o"
 ".\objects\crc.o"
+".\objects\list.o"
 --library_type=microlib --strict --scatter ".\objects\AT32F403ACGU7_PTP.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
