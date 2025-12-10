@@ -632,6 +632,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bases\crc.c</FilePath>
             </File>
+            <File>
+              <FileName>list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bases\list.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -46,4 +46,4 @@
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\ctype.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   ..\..\user\applications\tch_mb.h ..\..\user\drivers\drv_led.h \
-  ..\..\user\configs\base_config.h
+  ..\..\user\configs\base_config.h ..\..\user\bases\list.h

@@ -37,6 +37,7 @@
 #include "tch_uart.h"
 #include "tch_mb.h"
 #include "drv_led.h"
+#include "list.h"
 
 /* add user code end private includes */
 
@@ -67,6 +68,16 @@
 
 /* private user code ---------------------------------------------------------*/
 /* add user code begin 0 */
+// 示例函数定义
+void func_1001_original(void *param)
+{
+    printf("这是ID 1001的原始函数\n");
+}
+
+void func_1002(void *param)
+{
+    printf("这是ID 1002的函数\n");
+}
 
 /* add user code end 0 */
 
@@ -112,6 +123,14 @@ int main(void)
 
     struct serial_rx_configure *serial_rx_1 = drv_get_serial_fifo_1();
     struct serial_device *serial_device_1 = tch_get_serial("usart1");
+
+    ListNodePool_Init();
+    // 插入节点
+    insert_at_tail(1001, func_1001_original);
+    insert_at_tail(1002, func_1002);
+		
+		print_list();
+
     /* add user code end 2 */
 
     while (1)
